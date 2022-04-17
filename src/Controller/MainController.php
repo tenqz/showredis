@@ -2,17 +2,16 @@
 
 namespace App\Controller;
 
+use App\Manager\RedisManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-    /**
-     * @Route("/", name="app_main")
-     */
-    public function index(): Response
+    private RedisManager $redisManager;
+
+    public function __construct(RedisManager $redisManager)
     {
-        return $this->json("ShowRedis");
+        $this->redisManager = $redisManager;
     }
+
 }

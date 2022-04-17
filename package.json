@@ -5,6 +5,7 @@
         "@symfony/webpack-encore": "^1.7.0",
         "core-js": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
+        "vue-loader": "^16.8.3",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -14,5 +15,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "vue": "^3.2.33",
+        "vue-router": "^4.0.14"
     }
 }
