@@ -5,6 +5,7 @@
     >
       <div class="logo">
         <span>ShowRedis</span>
+        <p>Keys: {{ countKeys }}</p>
       </div>
     </a-layout-sider>
     <a-layout :style="{ marginLeft: '200px' }">
@@ -15,14 +16,34 @@
 </template>
 
 <script>
+import {mapActions} from "vuex"
+
 export default {
   name: "RedisClient",
+  data() {
+    return {
+      countKeys: 0,
+    }
+  },
+  mounted() {
+    this.dbSize()
+        .then(response => {
+          this.countKeys = response.data
+        })
+  },
+  methods: {
+    ...mapActions({
+      "dbSize": "dbSize"
+    })
+  },
+
 }
 </script>
 <style>
 .ant-layout-sider {
   background-color: #282828;
 }
+
 .logo {
   height: 32px;
   color: #fff;

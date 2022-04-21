@@ -14,14 +14,15 @@ Encore
         js: 'js/[name].[fullhash:8].js',
         css: 'css/[name].[fullhash:8].css',
     })
-    .addEntry('app', './assets/js/app.js')
+    .addEntry("app", "./assets/js/app.js")
+    .addStyleEntry("main", "./assets/sass/app.sass")
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
     .enableBuildNotifications()
     .enableSourceMaps()
     .enableVersioning()
-
+    .enableSassLoader()
     .configureBabelPresetEnv((config) => {
         config.useBuiltIns = 'usage';
         config.corejs = 3;

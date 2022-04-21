@@ -12,8 +12,11 @@ class RedisManager extends Redis
         $this->connect("redis");
     }
 
+    /**
+     * @return array
+     */
     public function allKeys(): array
     {
-        return $this->keys("*");
+        return parent::keys("*");
     }
 }
